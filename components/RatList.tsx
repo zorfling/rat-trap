@@ -52,7 +52,7 @@ const RatList = (props: Props) => {
   );
 
   type SortField = 'recency' | 'distance';
-  const [sort, setSort] = useLocalStorageState<SortField>('sort', 'distance');
+  const [sort, setSort] = useLocalStorageState<SortField>('sort', 'recency');
   const onChangeSort = useCallback<ChangeEventHandler<HTMLSelectElement>>(
     (evt) => {
       const isSortField = (field: string): field is SortField =>
@@ -79,7 +79,7 @@ const RatList = (props: Props) => {
     []
   );
   const [distanceFilter, setDistanceFilter] =
-    useLocalStorageState<DistanceFilter>('distanceFilter', '10km');
+    useLocalStorageState<DistanceFilter>('distanceFilter', '20km');
   const onChangeDistanceFilter = useCallback<
     ChangeEventHandler<HTMLSelectElement>
   >(
@@ -102,7 +102,7 @@ const RatList = (props: Props) => {
   );
   const [statusFilter, setStatusFilter] = useLocalStorageState<StatusFilter>(
     'statusFilter',
-    'IN_STOCK'
+    'ALL'
   );
   const onChangeStatusFilter = useCallback<
     ChangeEventHandler<HTMLSelectElement>
@@ -196,6 +196,7 @@ const RatList = (props: Props) => {
           ))}
         </select>
       </label>
+      <br />
       <label>
         Show:{' '}
         <select onChange={onChangeStatusFilter} value={statusFilter}>
