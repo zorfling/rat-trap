@@ -63,7 +63,7 @@ export default async function handler(
     sorted: true
   });
 
-  const distanceRadiusKms = 100;
+  const distanceRadiusKms = 500;
 
   const nearbySites = geo
     .nearBy(currentLocation.lat, currentLocation.lng, distanceRadiusKms * 1000)
@@ -84,10 +84,10 @@ export default async function handler(
         ...site,
         distance: distance,
         distanceString: distance.toFixed(2) + ' km',
-        timestamp: format(parseISO(site.date + '+00'), 't', {
+        timestamp: format(parseISO(site.date), 't', {
           locale: enAU
         }),
-        lastUpdated: formatDistance(parseISO(site.date + '+00'), new Date(), {
+        lastUpdated: formatDistance(parseISO(site.date), new Date(), {
           locale: enAU,
           addSuffix: true
         })

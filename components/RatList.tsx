@@ -66,6 +66,7 @@ const RatList = (props: Props) => {
   );
 
   type DistanceFilter =
+    | '500km'
     | '100km'
     | '50km'
     | '20km'
@@ -75,7 +76,7 @@ const RatList = (props: Props) => {
     | '1km';
 
   const distanceFilterKeys = useMemo<DistanceFilter[]>(
-    () => ['100km', '50km', '20km', '15km', '10km', '5km', '1km'],
+    () => ['500km', '100km', '50km', '20km', '15km', '10km', '5km', '1km'],
     []
   );
   const [distanceFilter, setDistanceFilter] =
